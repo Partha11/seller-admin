@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.LoginActivity"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/login_ui_image"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/_26sdp"
+                    android:text="@string/login_ui_text"
+                    android:fontFamily="@font/myriad_pro"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/login_ui_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_register_hero"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:hint="@string/login_email_hint"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/myriad_pro"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login_password"
+                    android:hint="@string/login_password_hint"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/myriad_pro"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/forgot_password_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:textColor="@color/login_bg"
+                android:textSize="@dimen/_8sdp"
+                android:fontFamily="@font/myriad_pro"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_8sdp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_button_bg"
+                android:text="@string/login_button"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/myriad_pro"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_50sdp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_weight="4"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_us"
+                    android:layout_weight="4"
+                    android:textSize="@dimen/_8sdp"
+                    android:fontFamily="@font/myriad_pro"
+                    android:textAlignment="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_weight="4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/facebook_button"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@drawable/ic_facebook"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/google_button"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@drawable/ic_google_plus"
+                    android:layout_marginStart="@dimen/_15sdp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

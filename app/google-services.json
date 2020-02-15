@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "901169762199",
+    "firebase_url": "https://teen-patti-gold-d8133.firebaseio.com",
+    "project_id": "teen-patti-gold-d8133",
+    "storage_bucket": "teen-patti-gold-d8133.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901169762199:android:9fb244a44ccafd34b83ed2",
+        "android_client_info": {
+          "package_name": "com.supernova.selleradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901169762199-kma1gn886dsngu1eruaf7o9usg6jv45r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supernova.selleradmin",
+            "certificate_hash": "fab23020d34cfc463f2749229dc0c4fc700cb62d"
+          }
+        },
+        {
+          "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFgv3W4oXewb318bU4FMCqoIhZ5isjhUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901169762199:android:3d94727f5658f893b83ed2",
+        "android_client_info": {
+          "package_name": "com.supernova.tpgmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901169762199-7r1035gll4giti4ftuii3mdlpcb8f0lq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supernova.tpgmaster",
+            "certificate_hash": "fab23020d34cfc463f2749229dc0c4fc700cb62d"
+          }
+        },
+        {
+          "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFgv3W4oXewb318bU4FMCqoIhZ5isjhUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

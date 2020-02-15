@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:background="@drawable/dialog_bg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/please_wait"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/myriad_pro"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_title"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_9sdp">
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/progress_circle"
+                style="@style/SpinKitView.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/login_bg"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dialog_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/progress_circle"
+                android:text="@string/progress_message"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

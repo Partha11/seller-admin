@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Seller Admin</string>
+
+    <string name="initializing">Initializing</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_ui_text">Welcome\nBack</string>
+    <string name="login_button">Login</string>
+    <string name="contact_us">Contact Us</string>
+
+    <string name="alert_header">Action Required!</string>
+    <string name="alert_message">Accessibility Service needs to be running in order to run this app properly.</string>
+    <string name="please_wait">Please Wait..</string>
+    <string name="progress_message">Progress Message</string>
+</resources>
