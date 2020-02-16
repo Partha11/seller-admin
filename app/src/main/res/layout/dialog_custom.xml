@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_3sdp"
+        android:background="@drawable/dialog_bg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_custom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/please_wait"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/myriad_pro"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_custom_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/dialog_custom_title"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            tools:text="@string/progress_message"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/myriad_pro"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/cancel"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/login_bg"
+            android:textAllCaps="false"
+            android:fontFamily="@font/myriad_pro"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/dialog_custom_message"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

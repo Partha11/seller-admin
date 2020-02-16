@@ -16,8 +16,8 @@ public interface Constants {
 
     String SHARED_PREFS = "user_data";
 
-    int NOTIF_ID_DEFAULT = 1;
-    String NOTIF_CHANNEL_ID = "Minibank";
+    int NOTIFICATION_ID_DEFAULT = 1;
+    String NOTIFICATION_CHANNEL_ID = "Seller Admin";
 
     int SMS_REQUEST_CODE = 100;
     int ACCESSIBILITY_ENABLED = 1;
@@ -61,4 +61,9 @@ public interface Constants {
 
     int SETTINGS_HEADER = 1;
     int SETTINGS_BODY = 2;
+
+    int TRANSACTION_FRAGMENT = 1;
+    int SETTINGS_FRAGMENT = 2;
+
+    int DRAWABLE_RIGHT = 2;
 }

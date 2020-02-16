@@ -8,7 +8,7 @@ public class Transaction {
     @SerializedName("id")
     @Expose
     private int id;
-    @SerializedName("phone_number")
+    @SerializedName("trx_number")
     @Expose
     private String phoneNumber;
     @SerializedName("player_id")

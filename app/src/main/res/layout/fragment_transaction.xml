@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.TransactionFragment"
+    android:background="#eee">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:drawableStart="@drawable/ic_search"
+        android:drawableEnd="@drawable/ic_cross"
+        android:drawablePadding="@dimen/_5sdp"
+        android:background="@drawable/search_box_bg"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:textSize="@dimen/_11sdp"
+        android:fontFamily="@font/myriad_pro"
+        android:hint="@string/search_hint"
+        android:maxLines="1"
+        android:maxLength="20"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transaction_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_view"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:listitem="@layout/model_transaction"
+        tools:itemCount="3"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/not_found_image"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_error_404"
+        android:visibility="gone"/>
+
+</RelativeLayout>

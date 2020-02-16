@@ -24,11 +24,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".view.DashboardActivity"/>
-        <activity android:name=".view.LoginActivity"
+        <activity android:name=".view.activity.DashboardActivity"/>
+        <activity android:name=".view.activity.LoginActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar"/>
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".view.activity.SplashActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -17,7 +17,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.supernova.selleradmin.R;
 import com.supernova.selleradmin.util.Constants;
-import com.supernova.selleradmin.view.SplashActivity;
+import com.supernova.selleradmin.view.activity.SplashActivity;
 
 import java.util.Objects;
 
@@ -69,7 +69,7 @@ public class SmsService extends Service {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            NotificationChannel channel = new NotificationChannel(Constants.NOTIF_CHANNEL_ID, Constants.NOTIF_CHANNEL_ID,
+            NotificationChannel channel = new NotificationChannel(Constants.NOTIFICATION_CHANNEL_ID, Constants.NOTIFICATION_CHANNEL_ID,
                     NotificationManager.IMPORTANCE_MIN);
             channel.setDescription("Detecting Transactions");
 
@@ -77,10 +77,10 @@ public class SmsService extends Service {
             Objects.requireNonNull(manager).createNotificationChannel(channel);
         }
 
-        startForeground(Constants.NOTIF_ID_DEFAULT, new NotificationCompat.Builder(this,
-                Constants.NOTIF_CHANNEL_ID)
+        startForeground(Constants.NOTIFICATION_ID_DEFAULT, new NotificationCompat.Builder(this,
+                Constants.NOTIFICATION_CHANNEL_ID)
                 .setOngoing(true)
-                .setContentTitle(Constants.NOTIF_CHANNEL_ID)
+                .setContentTitle(Constants.NOTIFICATION_CHANNEL_ID)
                 .setContentText("Service is running in background")
                 .setSmallIcon(R.drawable.ic_facebook)
                 .setContentIntent(pendingIntent)

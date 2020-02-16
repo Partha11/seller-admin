@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.Gravity;
@@ -18,32 +19,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.DialogFragment;
 
-import com.github.ybq.android.spinkit.SpinKitView;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.supernova.selleradmin.R;
 
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class CustomProgress extends DialogFragment {
+public class CustomDialog extends DialogFragment {
 
-    @BindView(R.id.dialog_title)
-    AppCompatTextView dialogTitleText;
-    @BindView(R.id.progress_circle)
-    SpinKitView progressCircle;
-    @BindView(R.id.dialog_message)
-    AppCompatTextView dialogMessageText;
+    @BindView(R.id.dialog_custom_title)
+    AppCompatTextView dialogCustomTitle;
+    @BindView(R.id.dialog_custom_message)
+    AppCompatTextView dialogCustomMessage;
 
-    private String dialogTitle;
-    private String dialogMessage;
+    private String title;
+    private String message;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.dialog_progress, container, false);
+        View view = inflater.inflate(R.layout.dialog_custom, container, false);
         ButterKnife.bind(this, view);
 
         initialize();
@@ -71,34 +69,30 @@ public class CustomProgress extends DialogFragment {
 
     private void initialize() {
 
-        progressCircle.setIndeterminateDrawable(new DoubleBounce());
+        if (title != null && !TextUtils.isEmpty(title)) {
 
-        if (dialogTitle != null && !TextUtils.isEmpty(dialogTitle)) {
-
-            dialogTitleText.setText(dialogTitle);
-
-        } else {
-
-            dialogTitleText.setText(getResources().getString(R.string.please_wait));
+            dialogCustomTitle.setText(title);
         }
 
-        if (dialogMessage != null && !TextUtils.isEmpty(dialogMessage)) {
+        if (message != null && !TextUtils.isEmpty(message)) {
 
-            dialogMessageText.setText(dialogMessage);
-
-        } else {
-
-            dialogMessageText.setText(getResources().getString(R.string.please_wait));
+            dialogCustomMessage.setText(Html.fromHtml(message));
         }
     }
 
-    public void setDialogTitle(String dialogTitle) {
+    @OnClick(R.id.cancel_button)
+    public void onViewClicked() {
 
-        this.dialogTitle = dialogTitle;
+        dismiss();
     }
 
-    public void setDialogMessage(String dialogMessage) {
+    public void setTitle(String title) {
 
-        this.dialogMessage = dialogMessage;
+        this.title = title;
+    }
+
+    public void setMessage(String message) {
+
+        this.message = message;
     }
 }

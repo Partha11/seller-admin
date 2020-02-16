@@ -1,16 +1,16 @@
-package com.supernova.selleradmin.view;
+package com.supernova.selleradmin.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.supernova.selleradmin.R;
+import com.supernova.selleradmin.dialog.CustomDialog;
 import com.supernova.selleradmin.dialog.CustomProgress;
 import com.supernova.selleradmin.util.Constants;
 import com.supernova.selleradmin.util.SharedPrefs;
@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText loginPassword;
 
     private LoginViewModel viewModel;
+    private CustomDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private void initialize() {
 
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        dialog = new CustomDialog();
     }
 
     @OnClick({R.id.login_button, R.id.facebook_button, R.id.google_button, R.id.forgot_password_text})
@@ -56,13 +58,17 @@ public class LoginActivity extends AppCompatActivity {
 
             case R.id.forgot_password_text:
 
+                showDialog("Information", "Please contact developer for resetting password.");
                 break;
 
             case R.id.facebook_button:
 
+                showDialog("Information", getString(R.string.facebook_message));
                 break;
 
             case R.id.google_button:
+
+                showDialog("Information", getString(R.string.mail_message));
                 break;
         }
     }
@@ -108,21 +114,30 @@ public class LoginActivity extends AppCompatActivity {
 
                         } else {
 
-                            Toast.makeText(this, response.getFailReason(), Toast.LENGTH_SHORT).show();
+                            showDialog("Error", response.getFailReason() + "!");
                         }
 
                     } else {
 
-                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        showDialog("Warning", "Something went wrong!");
                     }
 
                 } else {
 
                     progress.dismiss();
-                    Toast.makeText(this, "Error connecting to server", Toast.LENGTH_SHORT).show();
+                    showDialog("Warning", "Couldn't connect to server!");
                 }
             });
         }
+    }
+
+    private void showDialog(String title, String message) {
+
+        dialog.setTitle(title);
+        dialog.setMessage(message);
+        dialog.setCancelable(false);
+
+        dialog.show(getSupportFragmentManager(), "dialog");
     }
 
     private void changeActivity() {

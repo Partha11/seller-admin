@@ -13,4 +13,12 @@
     <string name="alert_message">Accessibility Service needs to be running in order to run this app properly.</string>
     <string name="please_wait">Please Wait..</string>
     <string name="progress_message">Progress Message</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="facebook_message">Contact with us on &lt;a href="https://www.facebook.com/SuperNova-271130343840929/">facebook&lt;a/></string>
+    <string name="mail_message">Mail us on &lt;a href="mailto:bugdebugger404@gmail.com">this&lt;a/> address</string>
+
+    <string name="transaction">Transactions</string>
+    <string name="settings">Settings</string>
+    <string name="search_hint">Type Player Id, Trx Id or Phone Number</string>
 </resources>
