@@ -14,7 +14,7 @@ public interface ApiInterface {
     Call<ApiResponse> uploadTransaction(@Field("user_email") String userEmail,
                                         @Field("user_token") String userToken,
                                         @Field("trx_id") String trxId,
-                                        @Field("trx_amount") double trxAmount,
+                                        @Field("trx_amount") String trxAmount,
                                         @Field("phone_number") String phoneNumber);
 
     @FormUrlEncoded
@@ -28,6 +28,11 @@ public interface ApiInterface {
     @POST("admin-login.php")
     Call<ApiResponse> signInWithEmailAndPassword(@Field("user_email") String email,
                                                  @Field("user_password") String password);
+
+    @FormUrlEncoded
+    @POST("get-data.php")
+    Call<ApiResponse> getData(@Field("user_email") String userEmail,
+                              @Field("user_token") String userToken);
 
     @FormUrlEncoded
     @POST("get-summary.php")
@@ -52,14 +57,14 @@ public interface ApiInterface {
                                        @Field("chips_price") String price);
 
     @FormUrlEncoded
-    @POST("change-number.php")
+    @POST("update-number.php")
     Call<ApiResponse> updateNumber(@Field("user_email") String userEmail,
                                    @Field("user_token") String userToken,
                                    @Field("number_type") String numberType,
                                    @Field("number") String number);
 
     @FormUrlEncoded
-    @POST("change-password.php")
+    @POST("update-password.php")
     Call<ApiResponse> updatePassword(@Field("user_email") String userEmail,
                                      @Field("user_token") String userToken,
                                      @Field("user_password") String userPassword);

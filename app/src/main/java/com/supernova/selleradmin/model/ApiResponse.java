@@ -1,8 +1,9 @@
 package com.supernova.selleradmin.model;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class ApiResponse {
 
@@ -27,6 +28,9 @@ public class ApiResponse {
     @SerializedName("rocket")
     @Expose
     private String rocket;
+    @SerializedName("chips_price")
+    @Expose
+    private String chipsPrice;
     @SerializedName("all_users")
     @Expose
     private String allUsers;
@@ -72,6 +76,14 @@ public class ApiResponse {
 
     public String getUserToken() {
         return userToken;
+    }
+
+    public String getChipsPrice() {
+        return chipsPrice;
+    }
+
+    public void setChipsPrice(String chipsPrice) {
+        this.chipsPrice = chipsPrice;
     }
 
     public void setUserToken(String userToken) {

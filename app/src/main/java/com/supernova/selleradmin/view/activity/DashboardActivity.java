@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,15 +18,20 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.gson.Gson;
 import com.supernova.selleradmin.R;
 import com.supernova.selleradmin.service.SmsService;
 import com.supernova.selleradmin.util.Constants;
+import com.supernova.selleradmin.util.SharedPrefs;
 import com.supernova.selleradmin.util.Utility;
+import com.supernova.selleradmin.view.fragment.PendingFragment;
 import com.supernova.selleradmin.view.fragment.SettingsFragment;
 import com.supernova.selleradmin.view.fragment.TransactionFragment;
+import com.supernova.selleradmin.viewmodel.DashboardViewModel;
 
 import java.util.Objects;
 
@@ -57,14 +63,51 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
     private void initialize() {
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.transaction, R.drawable.ic_home, R.color.login_bg);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.settings, R.drawable.ic_gear, R.color.login_bg);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.pending, R.drawable.ic_home, R.color.login_bg);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.settings, R.drawable.ic_gear, R.color.login_bg);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
+        bottomNavigation.addItem(item3);
         bottomNavigation.setOnTabSelectedListener(this);
 
         loadFragment(Constants.TRANSACTION_FRAGMENT);
         checkSmsPermission();
+        updateData();
+    }
+
+    private void updateData() {
+
+        DashboardViewModel viewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
+        SharedPrefs prefs = new SharedPrefs(this);
+
+        viewModel.getData(prefs.getUserEmail(),
+                prefs.getUserToken()).observe(this, response -> {
+
+            if (response != null) {
+
+                if (response.getStatus() != null) {
+
+                    if (response.getStatus().equals(Constants.STATUS_SUCCESS)) {
+
+                        Log.d("Data", new Gson().toJson(response));
+
+                        prefs.setBkash(response.getBkash());
+                        prefs.setNogod(response.getNogod());
+                        prefs.setRocket(response.getRocket());
+                        prefs.setChipsPrice(response.getChipsPrice());
+
+                    } else {
+
+                        Log.d("Error", response.getFailReason());
+                    }
+
+                } else {
+
+                    Log.d("Error", "Response Null");
+                }
+            }
+        });
     }
 
     private void loadFragment(int value) {
@@ -75,6 +118,10 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
         if (value == Constants.TRANSACTION_FRAGMENT) {
 
             fragment = new TransactionFragment();
+
+        } else if (value == Constants.PENDING_FRAGMENT) {
+
+            fragment = new PendingFragment();
 
         } else {
 
@@ -161,15 +208,7 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {
 
-        if (position == 0) {
-
-            loadFragment(Constants.TRANSACTION_FRAGMENT);
-
-        } else {
-
-            loadFragment(Constants.SETTINGS_FRAGMENT);
-        }
-
+        loadFragment(position + 1);
         return true;
     }
 }

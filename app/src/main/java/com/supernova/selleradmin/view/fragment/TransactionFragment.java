@@ -99,6 +99,8 @@ public class TransactionFragment extends Fragment implements TextView.OnEditorAc
 
         super.onAttach(context);
         this.context = context;
+
+        Objects.requireNonNull(getActivity()).setTitle("Transactions");
     }
 
     @Override

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.PendingFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pending_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:listitem="@layout/model_pending"
+        tools:itemCount="3"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/not_found_image"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_error_404"
+        android:visibility="gone"/>
+
+</RelativeLayout>

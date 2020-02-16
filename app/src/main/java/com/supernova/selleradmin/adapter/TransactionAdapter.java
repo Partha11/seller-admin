@@ -38,10 +38,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String number = "Phone No: " + transactions.get(position).getPhoneNumber();
-        String trxId = "Trx Id: " + transactions.get(position).getTrxId();
+        String trxId = "Trx Id: " + transactions.get(position).getTrxId().toUpperCase();
         String amount = "Amount: " + transactions.get(position).getTrxAmount() + " BDT";
 
-        holder.playerIdText.setText(transactions.get(position).getPlayerId());
+        holder.playerIdText.setText(transactions.get(position).getPlayerId().toUpperCase());
         holder.phoneNumberText.setText(number);
         holder.transactionIdText.setText(trxId);
         holder.transactionAmountText.setText(amount);

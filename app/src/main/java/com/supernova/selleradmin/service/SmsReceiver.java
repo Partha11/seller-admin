@@ -3,13 +3,17 @@ package com.supernova.selleradmin.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.supernova.selleradmin.database.PendingDao;
+import com.supernova.selleradmin.database.PendingDatabase;
 import com.supernova.selleradmin.model.ApiResponse;
+import com.supernova.selleradmin.model.Pending;
 import com.supernova.selleradmin.model.Transaction;
 import com.supernova.selleradmin.util.Constants;
 import com.supernova.selleradmin.util.SharedPrefs;
@@ -49,8 +53,8 @@ public class SmsReceiver extends BroadcastReceiver {
 
                 SharedPrefs prefs = new SharedPrefs(context);
                 ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-/*                Call<ApiResponse> call = apiInterface.uploadTransaction(prefs.getUserEmail(), prefs.getToken(),
-                        transaction.getTrxId(), Double.parseDouble(transaction.getTrxAmount()), transaction.getPhoneNumber());
+                Call<ApiResponse> call = apiInterface.uploadTransaction(prefs.getUserEmail(), prefs.getUserToken(),
+                        transaction.getTrxId(), transaction.getTrxAmount(), transaction.getPhoneNumber());
 
                 call.enqueue(new Callback<ApiResponse>() {
 
@@ -65,28 +69,28 @@ public class SmsReceiver extends BroadcastReceiver {
 
                             if (!data.getStatus().equals(Constants.STATUS_SUCCESS)) {
 
-*//*                                Pending pending = new Pending();
+                                Pending pending = new Pending();
 
                                 pending.setAmount(transaction.getTrxAmount());
                                 pending.setPhoneNumber(transaction.getPhoneNumber());
-                                pending.setReferenceCode(transaction.getPlayerId());
+                                pending.setPlayerId(transaction.getPlayerId());
                                 pending.setTrxId(transaction.getTrxId());
                                 pending.setIsPending(1);
 
-                                new InsertPending(context).execute(pending);*//*
+                                new InsertPending(context).execute(pending);
                             }
 
                         } else {
 
-*//*                            Pending pending = new Pending();
+                            Pending pending = new Pending();
 
                             pending.setAmount(transaction.getTrxAmount());
                             pending.setPhoneNumber(transaction.getPhoneNumber());
-                            pending.setReferenceCode(transaction.getPlayerId());
+                            pending.setPlayerId(transaction.getPlayerId());
                             pending.setTrxId(transaction.getTrxId());
                             pending.setIsPending(1);
 
-                            new InsertPending(context).execute(pending);*//*
+                            new InsertPending(context).execute(pending);
                         }
                     }
 
@@ -95,23 +99,23 @@ public class SmsReceiver extends BroadcastReceiver {
 
                         Log.d("Send:Failure", "" + t.getMessage());
 
-*//*                        Pending pending = new Pending();
+                        Pending pending = new Pending();
 
                         pending.setAmount(transaction.getTrxAmount());
                         pending.setPhoneNumber(transaction.getPhoneNumber());
-                        pending.setReferenceCode(transaction.getPlayerId());
+                        pending.setPlayerId(transaction.getPlayerId());
                         pending.setTrxId(transaction.getTrxId());
                         pending.setIsPending(1);
 
-                        new InsertPending(context).execute(pending);*//*
+                        new InsertPending(context).execute(pending);
                     }
-                });*/
+                });
             }
         }
     }
 }
 
-/*class InsertPending extends AsyncTask<Pending, Void, Void> {
+class InsertPending extends AsyncTask<Pending, Void, Void> {
 
     private PendingDao dao;
 
@@ -122,9 +126,9 @@ public class SmsReceiver extends BroadcastReceiver {
     }
 
     @Override
-    protected Void doInBackground(Pending... pendings) {
+    protected Void doInBackground(Pending... pending) {
 
-        dao.insertPending(pendings[0]);
+        dao.insertPending(pending[0]);
         return null;
     }
-}*/
+}

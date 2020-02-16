@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/_5sdp">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/player_id_text"
+        android:id="@+id/pending_player_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="ABES015"
@@ -17,32 +17,46 @@
         android:textColor="@android:color/holo_red_light"
         android:textStyle="bold"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@id/successful_icon"/>
+        android:layout_toStartOf="@id/button_layout"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/successful_icon"
-        android:layout_width="@dimen/_14sdp"
-        android:layout_height="@dimen/_14sdp"
-        android:layout_alignParentEnd="true"/>
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/resend_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/phone_number_text"
+        android:id="@+id/pending_phone_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Phone Number: +8801711111111"
         android:fontFamily="@font/open_sans"
         android:textSize="@dimen/_10sdp"
-        android:layout_below="@id/player_id_text"
+        android:layout_below="@id/pending_player_id"
         android:layout_marginTop="@dimen/_8sdp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/transaction_id_text"
+        android:id="@+id/pending_transaction_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Trx Id: 7ABHGY12OP"
         android:fontFamily="@font/open_sans"
         android:textSize="@dimen/_10sdp"
-        android:layout_below="@id/phone_number_text"
+        android:layout_below="@id/pending_phone_number"
         android:layout_marginTop="@dimen/_5sdp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -52,21 +66,7 @@
         tools:text="Trx Amount: 71 BDT"
         android:fontFamily="@font/open_sans"
         android:textSize="@dimen/_10sdp"
-        android:layout_below="@id/transaction_id_text"
-        android:layout_marginTop="@dimen/_5sdp"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/transaction_time_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="2019-01-19 12:01:00"
-        android:fontFamily="@font/open_sans"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        android:gravity="end"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/transaction_id_text"
-        android:layout_toEndOf="@id/transaction_amount_text"
+        android:layout_below="@id/pending_transaction_id"
         android:layout_marginTop="@dimen/_5sdp"/>
 
 </RelativeLayout>

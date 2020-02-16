@@ -22,8 +22,11 @@ public interface Constants {
     int SMS_REQUEST_CODE = 100;
     int ACCESSIBILITY_ENABLED = 1;
 
-    String DATABASE_NAME = "admin_database";
-    int DATABASE_VERSION = 4;
+    String DATABASE_NAME = "pending_database";
+    int DATABASE_VERSION = 1;
+
+
+    String TABLE_PENDING = "pending";
 
     String TABLE_USER = "users";
     String TABLE_OFFER = "offers";
@@ -63,7 +66,12 @@ public interface Constants {
     int SETTINGS_BODY = 2;
 
     int TRANSACTION_FRAGMENT = 1;
-    int SETTINGS_FRAGMENT = 2;
+    int PENDING_FRAGMENT = 2;
+    int SETTINGS_FRAGMENT = 3;
 
     int DRAWABLE_RIGHT = 2;
+
+    int PHONE_NUMBER_LENGTH = 11;
+    int PASSWORD_LENGTH = 40;
+    int AMOUNT_LENGTH = 5;
 }

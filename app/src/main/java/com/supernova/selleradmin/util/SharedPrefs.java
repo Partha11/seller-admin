@@ -64,4 +64,82 @@ public class SharedPrefs {
 
         return prefs.getString(Constants.USER_TOKEN, "");
     }
+
+    public void setBkash(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.BKASH_AGENT, number);
+        editor.apply();
+    }
+
+    private String getBkash() {
+
+        return prefs.getString(Constants.BKASH_AGENT, "");
+    }
+
+    public void setNogod(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.NOGOD_AGENT, number);
+        editor.apply();
+    }
+
+    private String getNogod() {
+
+        return prefs.getString(Constants.NOGOD_AGENT, "");
+    }
+
+    public void setRocket(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.ROCKET, number);
+        editor.apply();
+    }
+
+    private String getRocket() {
+
+        return prefs.getString(Constants.ROCKET, "");
+    }
+
+    public void setChipsPrice(String price) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.CHIPS_PRICE, price);
+        editor.apply();
+    }
+
+    public String getChipsPrice() {
+
+        return prefs.getString(Constants.CHIPS_PRICE, "70");
+    }
+
+    public String getNumber(int i) {
+
+        switch(i) {
+            case 0:
+                return getBkash();
+            case 1:
+                return getNogod();
+            case 2:
+                return getRocket();
+            default:
+                return "";
+        }
+    }
+
+    public void setNumber(int position, String text) {
+
+        switch(position) {
+            case 0:
+                setBkash(text);
+            case 1:
+                setNogod(text);
+            case 2:
+                setRocket(text);
+        }
+    }
 }
