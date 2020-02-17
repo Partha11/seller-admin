@@ -1,7 +1,13 @@
 package com.supernova.selleradmin.model;
 
+import android.util.Log;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.supernova.selleradmin.util.Constants;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Transaction {
 
@@ -23,6 +29,9 @@ public class Transaction {
     @SerializedName("trx_amount")
     @Expose
     private String trxAmount;
+    @SerializedName("trx_type")
+    @Expose
+    private int trxType;
 
     public String getPlayerId() {
         return playerId == null ? "" : playerId;
@@ -53,7 +62,28 @@ public class Transaction {
     }
 
     public void setTrxId(String trxId) {
+
         this.trxId = trxId;
+
+        Log.d("Length", "" + this.trxId.length());
+
+        if (this.trxId.length() == 10) {
+
+            Matcher m = Pattern.compile("\\b[0-9]{10}\\b").matcher(this.trxId);
+
+            if (m.find()) {
+
+                this.setTrxType(Constants.TYPE_ROCKET);
+
+            } else {
+
+                this.setTrxType(Constants.TYPE_BKASH);
+            }
+
+        } else if (this.trxId.length() == 8) {
+
+            this.setTrxType(Constants.TYPE_NOGOD);
+        }
     }
 
     public String getTrxAmount() {
@@ -69,6 +99,22 @@ public class Transaction {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+
+        if (phoneNumber.length() == 11) {
+
+            this.phoneNumber = phoneNumber;
+
+        } else if (phoneNumber.length() == 12) {
+
+            this.phoneNumber = phoneNumber.substring(0, phoneNumber.length() - 1);
+        }
+    }
+
+    public int getTrxType() {
+        return trxType;
+    }
+
+    public void setTrxType(int trxType) {
+        this.trxType = trxType;
     }
 }

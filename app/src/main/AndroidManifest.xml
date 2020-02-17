@@ -52,6 +52,16 @@
                 android:resource="@xml/broadcast_accessibility" />
         </service>
 
+        <receiver android:name=".service.SmsReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

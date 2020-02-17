@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/_6sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_chips"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/open_sans"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_8sdp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/resend_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_box_bg"
+            android:textSize="@dimen/_10sdp"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:fontFamily="@font/open_sans"
+            android:layout_margin="@dimen/_5sdp"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:gravity="center_vertical"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/resend_trx_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_box_bg"
+            android:textSize="@dimen/_10sdp"
+            android:hint="@string/transaction_id"
+            android:enabled="false"
+            android:fontFamily="@font/open_sans"
+            android:layout_margin="@dimen/_5sdp"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:gravity="center_vertical"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/resend_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_box_bg"
+            android:textSize="@dimen/_10sdp"
+            android:hint="@string/transaction_amount"
+            android:enabled="false"
+            android:fontFamily="@font/open_sans"
+            android:layout_margin="@dimen/_5sdp"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_3sdp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resend_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm"
+                android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/myriad_pro"
+                android:textAllCaps="false"
+                android:textColor="@color/login_bg"
+                android:background="@android:color/transparent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resend_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textSize="@dimen/_11sdp"
+                android:fontFamily="@font/myriad_pro"
+                android:textAllCaps="false"
+                android:textColor="@android:color/holo_red_light"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -71,6 +71,8 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
         bottomNavigation.addItem(item3);
         bottomNavigation.setOnTabSelectedListener(this);
 
+        Log.d("Object", new Gson().toJson(Utility.getTransaction("Tk70.00 received from A/C:017147768720 Fee:Tk0, Your A/C Balance: Tk7,063.80 TxnId:1623929982 Date:11-FEB-20 12:59:18 am. Download https://bit.ly/nexuspay")));
+
         loadFragment(Constants.TRANSACTION_FRAGMENT);
         checkSmsPermission();
         updateData();

@@ -15,7 +15,7 @@ public class Pending {
     private String playerId;
     private String amount;
     private String phoneNumber;
-    private Integer isPending;
+    private int trxType;
 
     @NonNull
     public String getTrxId() {
@@ -50,12 +50,11 @@ public class Pending {
         this.phoneNumber = phoneNumber;
     }
 
-    public Integer getIsPending() {
-        return isPending;
+    public int getTrxType() {
+        return trxType;
     }
 
-    public void setIsPending(Integer isPending) {
-        this.isPending = isPending;
+    public void setTrxType(int trxType) {
+        this.trxType = trxType;
     }
-
 }

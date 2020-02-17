@@ -45,7 +45,7 @@ public class SmsReceiver extends BroadcastReceiver {
         Log.d("Message:(Receiver)", smsSender);
         Log.d("Message:(Body)", smsBody);
 
-        if (smsSender.equals("bKash") || smsSender.equals("Nagad")) {
+        if (smsSender.equals("bKash") || smsSender.equals("Nagad") || smsSender.equals("+8801715382590")) {
 
             Transaction transaction = Utility.getTransaction(smsBody);
 
@@ -54,7 +54,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 SharedPrefs prefs = new SharedPrefs(context);
                 ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
                 Call<ApiResponse> call = apiInterface.uploadTransaction(prefs.getUserEmail(), prefs.getUserToken(),
-                        transaction.getTrxId(), transaction.getTrxAmount(), transaction.getPhoneNumber());
+                        transaction.getTrxId(), transaction.getTrxAmount(), transaction.getPhoneNumber(), transaction.getTrxType());
 
                 call.enqueue(new Callback<ApiResponse>() {
 
@@ -75,7 +75,7 @@ public class SmsReceiver extends BroadcastReceiver {
                                 pending.setPhoneNumber(transaction.getPhoneNumber());
                                 pending.setPlayerId(transaction.getPlayerId());
                                 pending.setTrxId(transaction.getTrxId());
-                                pending.setIsPending(1);
+                                pending.setTrxType(transaction.getTrxType());
 
                                 new InsertPending(context).execute(pending);
                             }
@@ -88,7 +88,7 @@ public class SmsReceiver extends BroadcastReceiver {
                             pending.setPhoneNumber(transaction.getPhoneNumber());
                             pending.setPlayerId(transaction.getPlayerId());
                             pending.setTrxId(transaction.getTrxId());
-                            pending.setIsPending(1);
+                            pending.setTrxType(transaction.getTrxType());
 
                             new InsertPending(context).execute(pending);
                         }
@@ -105,7 +105,7 @@ public class SmsReceiver extends BroadcastReceiver {
                         pending.setPhoneNumber(transaction.getPhoneNumber());
                         pending.setPlayerId(transaction.getPlayerId());
                         pending.setTrxId(transaction.getTrxId());
-                        pending.setIsPending(1);
+                        pending.setTrxType(transaction.getTrxType());
 
                         new InsertPending(context).execute(pending);
                     }
@@ -113,22 +113,22 @@ public class SmsReceiver extends BroadcastReceiver {
             }
         }
     }
-}
 
-class InsertPending extends AsyncTask<Pending, Void, Void> {
+    static class InsertPending extends AsyncTask<Pending, Void, Void> {
 
-    private PendingDao dao;
+        private PendingDao dao;
 
-    InsertPending(Context context) {
+        InsertPending(Context context) {
 
-        PendingDatabase database = PendingDatabase.getInstance(context);
-        dao = database.pendingDao();
-    }
+            PendingDatabase database = PendingDatabase.getInstance(context);
+            dao = database.pendingDao();
+        }
 
-    @Override
-    protected Void doInBackground(Pending... pending) {
+        @Override
+        protected Void doInBackground(Pending... pending) {
 
-        dao.insertPending(pending[0]);
-        return null;
+            dao.insertPending(pending[0]);
+            return null;
+        }
     }
 }

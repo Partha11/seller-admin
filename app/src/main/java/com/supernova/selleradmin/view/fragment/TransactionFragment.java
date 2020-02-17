@@ -135,7 +135,7 @@ public class TransactionFragment extends Fragment implements TextView.OnEditorAc
 
                                         if (adapter == null) {
 
-                                            adapter = new TransactionAdapter(response.getTransactions());
+                                            adapter = new TransactionAdapter(context, response.getTransactions());
 
                                         } else {
 
@@ -223,7 +223,7 @@ public class TransactionFragment extends Fragment implements TextView.OnEditorAc
 
                             if (adapter == null) {
 
-                                adapter = new TransactionAdapter(response.getTransactions());
+                                adapter = new TransactionAdapter(context, response.getTransactions());
 
                             } else {
 

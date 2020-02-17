@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.supernova.selleradmin.R;
 import com.supernova.selleradmin.listener.PendingActionListener;
 import com.supernova.selleradmin.model.Pending;
+import com.supernova.selleradmin.util.Constants;
 
 import java.util.List;
 
@@ -38,7 +39,6 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
         String trxId = "Trx Id: " + transactions.get(position).getTrxId().toUpperCase();
         String amount = "Amount: " + transactions.get(position).getAmount() + " BDT";
 
-        holder.pendingPlayerId.setText(transactions.get(position).getPlayerId().toUpperCase());
         holder.pendingPhoneNumber.setText(number);
         holder.pendingTransactionId.setText(trxId);
         holder.transactionAmountText.setText(amount);
@@ -62,8 +62,6 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.pending_player_id)
-        AppCompatTextView pendingPlayerId;
         @BindView(R.id.pending_phone_number)
         AppCompatTextView pendingPhoneNumber;
         @BindView(R.id.pending_transaction_id)
@@ -86,7 +84,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.ViewHold
                     listener.delete(transactions.get(getAdapterPosition()));
                     break;
                 case R.id.resend_button:
-                    listener.resend(transactions.get(getAdapterPosition()));
+                    listener.resend(transactions.get(getAdapterPosition()), Constants.FROM_ADAPTER);
                     break;
             }
         }

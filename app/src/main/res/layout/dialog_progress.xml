@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/please_wait"
             android:textSize="@dimen/_13sdp"
-            android:fontFamily="@font/myriad_pro"
+            android:fontFamily="@font/open_sans"
             android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginStart="@dimen/_8sdp"/>
 

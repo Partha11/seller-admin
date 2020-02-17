@@ -12,6 +12,8 @@ import com.supernova.selleradmin.model.ApiResponse;
 import com.supernova.selleradmin.model.Pending;
 import com.supernova.selleradmin.service.ApiClient;
 import com.supernova.selleradmin.service.ApiInterface;
+import com.supernova.selleradmin.task.InsertPending;
+import com.supernova.selleradmin.util.Constants;
 
 import java.util.Objects;
 
@@ -229,6 +231,53 @@ public class DashboardRepository {
             callback.setValue(false);
             e.printStackTrace();
         }
+
+        return callback;
+    }
+
+    public LiveData<ApiResponse> addToServer(String email, String token, Pending pending) {
+
+        MutableLiveData<ApiResponse> callback = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        InsertPending insertPending = new InsertPending(dao);
+        Call<ApiResponse> call = apiInterface.uploadTransaction(email, token,
+                pending.getTrxId(), pending.getAmount(), pending.getPhoneNumber(), pending.getTrxType());
+
+        call.enqueue(new Callback<ApiResponse>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+
+                ApiResponse data = response.body();
+
+                if (data != null) {
+
+                    if (!data.getStatus().equals(Constants.STATUS_SUCCESS)) {
+
+                        insertPending.execute(pending);
+                        callback.setValue(data);
+
+                    } else {
+
+                        callback.setValue(data);
+                    }
+
+                } else {
+
+                    insertPending.execute(pending);
+                    callback.setValue(new ApiResponse());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ApiResponse> call, @NonNull Throwable t) {
+
+                Log.d("Send:Failure", "" + t.getMessage());
+
+                insertPending.execute(pending);
+                callback.setValue(new ApiResponse());
+            }
+        });
 
         return callback;
     }

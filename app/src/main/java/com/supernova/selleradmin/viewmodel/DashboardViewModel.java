@@ -54,6 +54,11 @@ public class DashboardViewModel extends AndroidViewModel {
         return repository.updatePassword(userEmail, userToken, password);
     }
 
+    public LiveData<ApiResponse> sendToServer(String email, String token, Pending pending) {
+
+        return repository.addToServer(email, token, pending);
+    }
+
     public LiveData<List<Pending>> getPendingList() {
 
         return pendingList;

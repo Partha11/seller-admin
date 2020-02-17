@@ -10,12 +10,13 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("update-transactions.php")
+    @POST("add-transaction.php")
     Call<ApiResponse> uploadTransaction(@Field("user_email") String userEmail,
                                         @Field("user_token") String userToken,
                                         @Field("trx_id") String trxId,
                                         @Field("trx_amount") String trxAmount,
-                                        @Field("phone_number") String phoneNumber);
+                                        @Field("trx_number") String phoneNumber,
+                                        @Field("trx_type") int type);
 
     @FormUrlEncoded
     @POST("add-chips.php")

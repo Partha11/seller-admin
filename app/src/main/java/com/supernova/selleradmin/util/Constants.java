@@ -74,4 +74,13 @@ public interface Constants {
     int PHONE_NUMBER_LENGTH = 11;
     int PASSWORD_LENGTH = 40;
     int AMOUNT_LENGTH = 5;
+
+    int FROM_ADAPTER = 0;
+    int FROM_DIALOG = 1;
+
+    String NOT_CLAIMED = "Not Claimed";
+
+    int TYPE_BKASH = 1;
+    int TYPE_NOGOD = 2;
+    int TYPE_ROCKET = 3;
 }

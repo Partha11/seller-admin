@@ -104,13 +104,13 @@ public class Utility {
     public static Transaction getTransaction(String body) {
 
         Transaction transaction = new Transaction();
-        Pattern pattern = Pattern.compile("([0-9]*[,][0-9]*[.])[0-9]+|([0-9]*[.])[0-9]+");
+        Pattern pattern = Pattern.compile("\\b([0-9]*[,][0-9]*[.])[0-9]+\\b|\\b([0-9]*[.])[0-9]+\\b");
         Matcher matcher = pattern.matcher(body);
 
         if (matcher.find()) {
 
             transaction.setTrxAmount(matcher.group().trim().replace(",", ""));
-            matcher = Pattern.compile("\\b[0-9]{11}\\b").matcher(body);
+            matcher = Pattern.compile("\\b[0-9]{11}\\b|\\b[0-9]{12}\\b").matcher(body);
 
             if (matcher.find()) {
 
