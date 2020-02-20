@@ -82,7 +82,7 @@ public class SmsService extends Service {
                 .setOngoing(true)
                 .setContentTitle(Constants.NOTIFICATION_CHANNEL_ID)
                 .setContentText("Service is running in background")
-                .setSmallIcon(R.drawable.ic_facebook)
+                .setSmallIcon(R.drawable.ic_lock)
                 .setContentIntent(pendingIntent)
                 .build());
     }

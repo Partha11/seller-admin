@@ -72,9 +72,12 @@ public class SettingsFragment extends Fragment implements OnItemClick {
         settings.add(new SettingsModel("Security", true));
         settings.add(new SettingsModel("Change Password", false));
         settings.add(new SettingsModel("Numbers", true));
-        settings.add(new SettingsModel("Bkash", false));
-        settings.add(new SettingsModel("Nogod", false));
+        settings.add(new SettingsModel("Bkash Agent", false));
+        settings.add(new SettingsModel("Bkash Payment", false));
+        settings.add(new SettingsModel("Nogod Agent", false));
+        settings.add(new SettingsModel("Nogod Payment", false));
         settings.add(new SettingsModel("Rocket", false));
+        settings.add(new SettingsModel("Contact Number", false));
         settings.add(new SettingsModel("Extra", true));
         settings.add(new SettingsModel("Chips Price", false));
 
@@ -117,7 +120,7 @@ public class SettingsFragment extends Fragment implements OnItemClick {
             editText.setHint("New Password");
             editText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(Constants.PASSWORD_LENGTH)});
 
-        } else if (position >= 3 && position <= 5) {
+        } else if (position >= 3 && position <= 8) {
 
             editText.setText(prefs.getNumber(position - 3));
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -146,7 +149,7 @@ public class SettingsFragment extends Fragment implements OnItemClick {
 
                         updatePassword(editText.getText().toString());
 
-                    } else if (position >= 3 && position <= 5) {
+                    } else if (position >= 3 && position <= 8) {
 
                         if (editText.length() != 11) {
 
@@ -156,6 +159,10 @@ public class SettingsFragment extends Fragment implements OnItemClick {
 
                             updateNumber(position - 3, editText.getText().toString());
                         }
+
+                    } else {
+
+                        updatePrice(editText.getText().toString());
                     }
                 })
                 .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss());
@@ -174,6 +181,32 @@ public class SettingsFragment extends Fragment implements OnItemClick {
                 (int) getResources().getDimension(R.dimen._10sdp));
 
         editText.setLayoutParams(params);
+    }
+
+    private void updatePrice(String price) {
+
+        viewModel.updatePrice(prefs.getUserEmail(), prefs.getUserToken(),
+                price).observe(Objects.requireNonNull(getActivity()), response -> {
+
+            if (response != null) {
+
+                if (response.getStatus() != null) {
+
+                    if (response.getStatus().equals(Constants.STATUS_SUCCESS)) {
+
+                        Toast.makeText(context, "Price updated", Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        Toast.makeText(context, response.getFailReason(), Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+
+                    Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void updatePassword(String password) {

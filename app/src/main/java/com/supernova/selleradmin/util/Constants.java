@@ -49,6 +49,7 @@ public interface Constants {
     String NOGOD_AGENT = "nogod_agent";
     String NOGOD_PAYMENT = "nogod_payment";
     String ROCKET = "rocket";
+    String CONTACT_NO = "contact";
 
     String All_USER_COUNT = "all_users";
     String TOTAL_CHIP_SALE = "total_chip_sale";
@@ -65,6 +66,7 @@ public interface Constants {
     int SETTINGS_HEADER = 1;
     int SETTINGS_BODY = 2;
 
+    int HOME_FRAGMENT = 0;
     int TRANSACTION_FRAGMENT = 1;
     int PENDING_FRAGMENT = 2;
     int SETTINGS_FRAGMENT = 3;

@@ -44,6 +44,11 @@ public class DashboardViewModel extends AndroidViewModel {
         return repository.getData(email, token);
     }
 
+    public LiveData<ApiResponse> getGraphData(String email, String token) {
+
+        return repository.getGraphData(email, token);
+    }
+
     public LiveData<ApiResponse> updateNumber(String email, String token, int position, String text) {
 
         return repository.updateNumber(email, token, position, text);
@@ -67,5 +72,15 @@ public class DashboardViewModel extends AndroidViewModel {
     public LiveData<Boolean> deletePending(Pending pending) {
 
         return repository.deletePending(pending);
+    }
+
+    public LiveData<ApiResponse> updatePrice(String userEmail, String userToken, String price) {
+
+        return repository.updatePrice(userEmail, userToken, price);
+    }
+
+    public LiveData<ApiResponse> sendNotification(String userEmail, String userToken, String title, String content) {
+
+        return repository.sendNotification(userEmail, userToken, title, content);
     }
 }

@@ -6,6 +6,20 @@
     tools:context=".view.activity.LoginActivity"
     android:background="@android:color/white">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/seller_admin"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/initializing"
+        android:textSize="@dimen/_9sdp"
+        android:fontFamily="@font/myriad_pro"
+        android:layout_marginBottom="@dimen/_6sdp"/>
 
 </RelativeLayout>

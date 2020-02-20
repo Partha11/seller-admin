@@ -73,9 +73,22 @@ public class SharedPrefs {
         editor.apply();
     }
 
+    private void setBkashPayment(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.BKASH_PAYMENT, number);
+        editor.apply();
+    }
+
     private String getBkash() {
 
         return prefs.getString(Constants.BKASH_AGENT, "");
+    }
+
+    private String getBkashPayment() {
+
+        return prefs.getString(Constants.BKASH_PAYMENT, "");
     }
 
     public void setNogod(String number) {
@@ -86,9 +99,22 @@ public class SharedPrefs {
         editor.apply();
     }
 
+    public void setNogodPayment(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.NOGOD_PAYMENT, number);
+        editor.apply();
+    }
+
     private String getNogod() {
 
         return prefs.getString(Constants.NOGOD_AGENT, "");
+    }
+
+    private String getNogodPayment() {
+
+        return prefs.getString(Constants.NOGOD_PAYMENT, "");
     }
 
     public void setRocket(String number) {
@@ -102,6 +128,19 @@ public class SharedPrefs {
     private String getRocket() {
 
         return prefs.getString(Constants.ROCKET, "");
+    }
+
+    public void setContactNumber(String number) {
+
+        editor = prefs.edit();
+
+        editor.putString(Constants.CONTACT_NO, number);
+        editor.apply();
+    }
+
+    private String getContactNumber() {
+
+        return prefs.getString(Constants.CONTACT_NO, "");
     }
 
     public void setChipsPrice(String price) {
@@ -123,9 +162,15 @@ public class SharedPrefs {
             case 0:
                 return getBkash();
             case 1:
-                return getNogod();
+                return getBkashPayment();
             case 2:
+                return getNogod();
+            case 3:
+                return getNogodPayment();
+            case 4:
                 return getRocket();
+            case 5:
+                return getContactNumber();
             default:
                 return "";
         }
@@ -136,10 +181,22 @@ public class SharedPrefs {
         switch(position) {
             case 0:
                 setBkash(text);
+                break;
             case 1:
-                setNogod(text);
+                setBkashPayment(text);
+                break;
             case 2:
+                setNogod(text);
+                break;
+            case 3:
+                setNogodPayment(text);
+                break;
+            case 4:
                 setRocket(text);
+                break;
+            case 5:
+                setContactNumber(text);
+                break;
         }
     }
 }

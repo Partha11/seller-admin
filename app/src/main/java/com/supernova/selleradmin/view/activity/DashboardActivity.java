@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -28,6 +29,7 @@ import com.supernova.selleradmin.service.SmsService;
 import com.supernova.selleradmin.util.Constants;
 import com.supernova.selleradmin.util.SharedPrefs;
 import com.supernova.selleradmin.util.Utility;
+import com.supernova.selleradmin.view.fragment.HomeFragment;
 import com.supernova.selleradmin.view.fragment.PendingFragment;
 import com.supernova.selleradmin.view.fragment.SettingsFragment;
 import com.supernova.selleradmin.view.fragment.TransactionFragment;
@@ -46,6 +48,8 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
     private static boolean accessibilityDialog = false;
     private static boolean permissionDialog = false;
     private static boolean serviceLaunched = false;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private boolean doubleBackPressed = false;
 
     private Intent serviceIntent;
@@ -57,23 +61,25 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
 
+        setSupportActionBar(toolbar);
         initialize();
     }
 
     private void initialize() {
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.transaction, R.drawable.ic_home, R.color.login_bg);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.pending, R.drawable.ic_home, R.color.login_bg);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.settings, R.drawable.ic_gear, R.color.login_bg);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.home, R.drawable.ic_home, R.color.login_bg);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.transaction, R.drawable.ic_money, R.color.login_bg);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.pending, R.drawable.ic_timer, R.color.login_bg);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.settings, R.drawable.ic_gear, R.color.login_bg);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
         bottomNavigation.addItem(item3);
+        bottomNavigation.addItem(item4);
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
         bottomNavigation.setOnTabSelectedListener(this);
 
-        Log.d("Object", new Gson().toJson(Utility.getTransaction("Tk70.00 received from A/C:017147768720 Fee:Tk0, Your A/C Balance: Tk7,063.80 TxnId:1623929982 Date:11-FEB-20 12:59:18 am. Download https://bit.ly/nexuspay")));
-
-        loadFragment(Constants.TRANSACTION_FRAGMENT);
+        loadFragment(Constants.HOME_FRAGMENT);
         checkSmsPermission();
         updateData();
     }
@@ -117,7 +123,11 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         Fragment fragment;
 
-        if (value == Constants.TRANSACTION_FRAGMENT) {
+        if (value == Constants.HOME_FRAGMENT) {
+
+            fragment = new HomeFragment();
+
+        } else if (value == Constants.TRANSACTION_FRAGMENT) {
 
             fragment = new TransactionFragment();
 
@@ -210,7 +220,7 @@ public class DashboardActivity extends AppCompatActivity implements AHBottomNavi
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {
 
-        loadFragment(position + 1);
+        loadFragment(position);
         return true;
     }
 }

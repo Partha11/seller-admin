@@ -132,6 +132,40 @@ public class DashboardRepository {
         return callback;
     }
 
+    public LiveData<ApiResponse> getGraphData(String email, String token) {
+
+        MutableLiveData<ApiResponse> callback = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<ApiResponse> call = apiInterface.getGraphData(email, token);
+
+        call.enqueue(new Callback<ApiResponse>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+
+                ApiResponse body = response.body();
+
+                if (body != null) {
+
+                    callback.setValue(body);
+
+                } else {
+
+                    callback.setValue(new ApiResponse());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ApiResponse> call, @NonNull Throwable t) {
+
+                Log.e("Error", Objects.requireNonNull(t.getMessage()));
+                callback.setValue(new ApiResponse());
+            }
+        });
+
+        return callback;
+    }
+
     public LiveData<ApiResponse> updateNumber(String email, String token, int position, String number) {
 
         MutableLiveData<ApiResponse> callback = new MutableLiveData<>();
@@ -143,11 +177,23 @@ public class DashboardRepository {
 
         } else if (position == 1) {
 
-            field = "nogod";
+            field = "bkash_payment";
 
         } else if (position == 2) {
 
+            field = "nogod";
+
+        } else if (position == 3) {
+
+            field = "nogod_payment";
+
+        } else if (position == 4) {
+
             field = "rocket";
+
+        } else if (position == 5) {
+
+            field = "contact_no";
         }
 
         String finalField = field;
@@ -275,6 +321,74 @@ public class DashboardRepository {
                 Log.d("Send:Failure", "" + t.getMessage());
 
                 insertPending.execute(pending);
+                callback.setValue(new ApiResponse());
+            }
+        });
+
+        return callback;
+    }
+
+    public LiveData<ApiResponse> updatePrice(String userEmail, String userToken, String price) {
+
+        MutableLiveData<ApiResponse> callback = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<ApiResponse> call = apiInterface.updatePrice(userEmail, userToken, price);
+
+        call.enqueue(new Callback<ApiResponse>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+
+                ApiResponse body = response.body();
+
+                if (body != null) {
+
+                    callback.setValue(body);
+
+                } else {
+
+                    callback.setValue(new ApiResponse());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ApiResponse> call, @NonNull Throwable t) {
+
+                Log.e("Error", Objects.requireNonNull(t.getMessage()));
+                callback.setValue(new ApiResponse());
+            }
+        });
+
+        return callback;
+    }
+
+    public LiveData<ApiResponse> sendNotification(String userEmail, String userToken, String title, String content) {
+
+        MutableLiveData<ApiResponse> callback = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<ApiResponse> call = apiInterface.sendNotification(userEmail, userToken, title, content);
+
+        call.enqueue(new Callback<ApiResponse>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+
+                ApiResponse body = response.body();
+
+                if (body != null) {
+
+                    callback.setValue(body);
+
+                } else {
+
+                    callback.setValue(new ApiResponse());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ApiResponse> call, @NonNull Throwable t) {
+
+                Log.e("Error", Objects.requireNonNull(t.getMessage()));
                 callback.setValue(new ApiResponse());
             }
         });

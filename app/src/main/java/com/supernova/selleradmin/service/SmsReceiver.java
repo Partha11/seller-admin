@@ -45,7 +45,7 @@ public class SmsReceiver extends BroadcastReceiver {
         Log.d("Message:(Receiver)", smsSender);
         Log.d("Message:(Body)", smsBody);
 
-        if (smsSender.equals("bKash") || smsSender.equals("Nagad") || smsSender.equals("+8801715382590")) {
+        if (smsSender.equals("bKash") || smsSender.equals("Nagad") || smsSender.equals("16216")) {
 
             Transaction transaction = Utility.getTransaction(smsBody);
 

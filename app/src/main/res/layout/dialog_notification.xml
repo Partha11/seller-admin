@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_3sdp"
+        android:background="@drawable/dialog_bg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_notification"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/open_sans"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/notification_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_box_bg"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/dialog_notification_title"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:hint="@string/notification_title"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/myriad_pro"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/notification_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_box_bg"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/notification_title_text"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:hint="@string/notification_content"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/myriad_pro"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/cancel"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@android:color/holo_orange_light"
+            android:textAllCaps="false"
+            android:fontFamily="@font/myriad_pro"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_below="@id/notification_content_text"
+            android:layout_toStartOf="@id/confirm_button"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/confirm"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/login_bg"
+            android:textAllCaps="false"
+            android:fontFamily="@font/myriad_pro"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/notification_content_text"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

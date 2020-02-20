@@ -49,6 +49,15 @@ public class ApiResponse {
     @SerializedName("transactions")
     @Expose
     private List<Transaction> transactions;
+    @SerializedName("data")
+    @Expose
+    private List<String> data;
+    @SerializedName("pie")
+    @Expose
+    private List<String> pieData;
+    @SerializedName("notifications")
+    @Expose
+    private List<NotificationItem> notifications;
 
     public String getStatus() {
         return status;
@@ -160,5 +169,29 @@ public class ApiResponse {
 
     public void setCurrentBalance(String currentBalance) {
         this.currentBalance = currentBalance;
+    }
+
+    public List<String> getData() {
+        return data;
+    }
+
+    public void setData(List<String> data) {
+        this.data = data;
+    }
+
+    public List<String> getPieData() {
+        return pieData;
+    }
+
+    public void setPieData(List<String> pieData) {
+        this.pieData = pieData;
+    }
+
+    public List<NotificationItem> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<NotificationItem> notifications) {
+        this.notifications = notifications;
     }
 }

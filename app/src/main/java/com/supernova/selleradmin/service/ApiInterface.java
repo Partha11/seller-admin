@@ -36,6 +36,11 @@ public interface ApiInterface {
                               @Field("user_token") String userToken);
 
     @FormUrlEncoded
+    @POST("get-graph.php")
+    Call<ApiResponse> getGraphData(@Field("user_email") String userEmail,
+                                   @Field("user_token") String userToken);
+
+    @FormUrlEncoded
     @POST("get-summary.php")
     Call<ApiResponse> getStats(@Field("user_email") String userEmail,
                                @Field("user_token") String userToken);
@@ -52,10 +57,10 @@ public interface ApiInterface {
                                         @Field("key") String key);
 
     @FormUrlEncoded
-    @POST("update-chips-price.php")
-    Call<ApiResponse> updateChipsPrice(@Field("user_email") String userEmail,
-                                       @Field("user_token") String userToken,
-                                       @Field("chips_price") String price);
+    @POST("update-price.php")
+    Call<ApiResponse> updatePrice(@Field("user_email") String userEmail,
+                                  @Field("user_token") String userToken,
+                                  @Field("chips_price") String price);
 
     @FormUrlEncoded
     @POST("update-number.php")
@@ -71,7 +76,7 @@ public interface ApiInterface {
                                      @Field("user_password") String userPassword);
 
     @FormUrlEncoded
-    @POST("notify-users.php")
+    @POST("send-notification.php")
     Call<ApiResponse> sendNotification(@Field("user_email") String userEmail,
                                        @Field("user_token") String userToken,
                                        @Field("notification_title") String title,

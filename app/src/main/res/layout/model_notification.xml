@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_bg"
+    android:padding="@dimen/_8sdp"
+    android:layout_margin="@dimen/_4sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notification_id_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Offer #1"
+        android:textSize="@dimen/_10sdp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/notification_created_text"
+        android:textColor="@android:color/holo_orange_dark"
+        android:fontFamily="@font/myriad_pro"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notification_created_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Notification Created: 12-01-2020"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:fontFamily="@font/myriad_pro"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Offer Deal: 5 Cr@400 BDT"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/notification_id_text"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/myriad_pro"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notification_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Offer Deal: 5 Cr@400 BDT"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/notification_title"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/myriad_pro"/>
+
+</RelativeLayout>

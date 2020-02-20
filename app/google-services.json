@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "901169762199",
-    "firebase_url": "https://teen-patti-gold-d8133.firebaseio.com",
-    "project_id": "teen-patti-gold-d8133",
-    "storage_bucket": "teen-patti-gold-d8133.appspot.com"
+    "project_number": "31341051817",
+    "firebase_url": "https://tpgshahin.firebaseio.com",
+    "project_id": "tpgshahin",
+    "storage_bucket": "tpgshahin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:901169762199:android:9fb244a44ccafd34b83ed2",
+        "mobilesdk_app_id": "1:31341051817:android:38e64f7ee89f92819a0eb8",
         "android_client_info": {
           "package_name": "com.supernova.selleradmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "901169762199-kma1gn886dsngu1eruaf7o9usg6jv45r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.supernova.selleradmin",
-            "certificate_hash": "fab23020d34cfc463f2749229dc0c4fc700cb62d"
-          }
-        },
-        {
-          "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+          "client_id": "31341051817-a42bu1t4vp9bf2fe8h61l0ef26e8iber.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBFgv3W4oXewb318bU4FMCqoIhZ5isjhUs"
+          "current_key": "AIzaSyA15SlXbtFRE7ara7I6MTDWzWro2kZ-_10"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+              "client_id": "31341051817-a42bu1t4vp9bf2fe8h61l0ef26e8iber.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -45,35 +37,35 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:901169762199:android:3d94727f5658f893b83ed2",
+        "mobilesdk_app_id": "1:31341051817:android:900fcc67767ee8009a0eb8",
         "android_client_info": {
-          "package_name": "com.supernova.tpgmaster"
+          "package_name": "com.supernova.tpgautochips"
         }
       },
       "oauth_client": [
         {
-          "client_id": "901169762199-7r1035gll4giti4ftuii3mdlpcb8f0lq.apps.googleusercontent.com",
+          "client_id": "31341051817-q1cb4anhe2sl96m126kluq8ir82cgt33.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.supernova.tpgmaster",
-            "certificate_hash": "fab23020d34cfc463f2749229dc0c4fc700cb62d"
+            "package_name": "com.supernova.tpgautochips",
+            "certificate_hash": "a57fdf8a3016348616f7e19469a8d110a8127ca7"
           }
         },
         {
-          "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+          "client_id": "31341051817-a42bu1t4vp9bf2fe8h61l0ef26e8iber.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBFgv3W4oXewb318bU4FMCqoIhZ5isjhUs"
+          "current_key": "AIzaSyA15SlXbtFRE7ara7I6MTDWzWro2kZ-_10"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "901169762199-nc52995pepfqh244tjccub5slgmbrfao.apps.googleusercontent.com",
+              "client_id": "31341051817-a42bu1t4vp9bf2fe8h61l0ef26e8iber.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

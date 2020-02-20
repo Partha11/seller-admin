@@ -8,6 +8,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.supernova.selleradmin.R;
 import com.supernova.selleradmin.model.Transaction;
 import com.supernova.selleradmin.service.AccessibilityService;
@@ -95,7 +97,7 @@ public class Utility {
                 .setNegativeButton("Maybe Later", (dialogInterface, i) -> {
 
                     dialogInterface.dismiss();
-//                    ((AppCompatActivity) context).finishAffinity();
+                    ((AppCompatActivity) context).finishAffinity();
                 });
 
         dialog.create().show();
@@ -104,7 +106,7 @@ public class Utility {
     public static Transaction getTransaction(String body) {
 
         Transaction transaction = new Transaction();
-        Pattern pattern = Pattern.compile("\\b([0-9]*[,][0-9]*[.])[0-9]+\\b|\\b([0-9]*[.])[0-9]+\\b");
+        Pattern pattern = Pattern.compile("([0-9]*[,][0-9]*[.])[0-9]+|([0-9]*[.])[0-9]+");
         Matcher matcher = pattern.matcher(body);
 
         if (matcher.find()) {
@@ -153,5 +155,20 @@ public class Utility {
         }
 
         return transaction;
+    }
+
+    public static String getPieLabel(int i) {
+
+        switch (i) {
+
+            case Constants.TYPE_BKASH:
+                return "Bkash";
+            case Constants.TYPE_NOGOD:
+                return "Nogod";
+            case Constants.TYPE_ROCKET:
+                return "Rocket";
+            default:
+                return "";
+        }
     }
 }
